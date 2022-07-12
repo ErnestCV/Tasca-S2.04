@@ -1,1 +1,10 @@
 db.restaurants.find();
+db.restaurants.find({},{restaurant_id: 1, name : 1, borough: 1, cuisine: 1});
+db.restaurants.find({},{restaurant_id: 1, name : 1, borough: 1, cuisine: 1, _id: 0});
+db.restaurants.find({},{restaurant_id: 1, name : 1, borough: 1, address: {zipcode: 1}, _id: 0});
+db.restaurants.find({borough: "Bronx"});
+db.restaurants.aggregate([{$match: {borough: "Bronx"}}, {$limit: 5}]);
+db.restaurants.aggregate([{$match: {borough: "Bronx"}}, {$skip: 5}, {$limit: 5}]);
+db.restaurants.find({grades: {$elemMatch: {score: {$gt: 90}}}});
+//TODO db.restaurants.find({'grades.score': {$gt: 90}});
+db.restaurants.find({grades: {$elemMatch: {score: {$gt: 80, $lt: 100}}}});

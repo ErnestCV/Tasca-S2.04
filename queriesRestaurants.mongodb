@@ -1,4 +1,4 @@
 use('restaurants_NY');
-db.restaurants.find();
-db.restaurants.find({},{restaurant_id: 1, name : 1, borough: 1, cuisine: 1});
-db.restaurants.find({},{restaurant_id: 1, name : 1, borough: 1, cuisine: 1, _id: 0});
+//db.restaurants.find({'address.coord': {$lt: -95.754168}});
+db.restaurants.find({{$arrayElemAt: ["$address.coord", 0]}: {$lt: -95.754168}});
+
