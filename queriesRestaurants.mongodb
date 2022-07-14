@@ -1,3 +1,1 @@
 use('restaurants_NY');
-db.restaurants.find({borough: "Bronx", cuisine: "American "});
-//TODO Chinese
